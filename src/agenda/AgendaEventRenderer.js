@@ -330,6 +330,7 @@ function AgendaEventRenderer() {
 		}else{
 			html += "div";
 		}
+
 		html +=
 			" class='" + classes.join(' ') + "'" +
 			" style=" +
@@ -345,7 +346,7 @@ function AgendaEventRenderer() {
 			htmlEscape(formatDates(event.start, event.end, opt('timeFormat'))) +
 			"</div>" +
 			"<div class='fc-event-title'>" +
-			htmlEscape(event.title || '') +
+                (event.title || '') +
 			"</div>" +
 			"</div>" +
 			"<div class='fc-event-bg'></div>";

@@ -2,6 +2,7 @@
  * <%= meta.title %> v<%= meta.version %>
  * Docs & License: <%= meta.homepage %>
  * (c) <%= meta.copyright %>
+ * Fork by rhomeister: https://github.com/rhomeister/fullcalendar
  */
 
 /*

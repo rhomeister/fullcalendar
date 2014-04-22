@@ -16,7 +16,6 @@ function Header(calendar, options) {
 	// locals
 	var element = $([]);
 	var tm;
-	
 
 
 	function render() {

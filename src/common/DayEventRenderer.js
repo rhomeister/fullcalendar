@@ -282,7 +282,7 @@ function DayEventRenderer() {
 		}
 		html +=
 			"<span class='fc-event-title'>" +
-			htmlEscape(event.title || '') +
+                (event.title || '') +
 			"</span>" +
 			"</div>";
 		if (segment.isEnd && isEventResizable(event)) {

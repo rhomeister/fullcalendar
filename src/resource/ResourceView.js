@@ -273,9 +273,7 @@ function ResourceView(element, calendar, viewName) {
 			);
 
         } else {
-
             daySegmentContainer = $([]); // in jQuery 1.4, we can just do $()
-
         }
 
         slotScroller =
@@ -335,6 +333,7 @@ function ResourceView(element, calendar, viewName) {
             bodyCell = dayBodyCells.eq(i);
             var res = t.getResource(i)
             headCell.html(res ? res.title : '');
+            headCell.addClass((res && res.warning) ? 'warning-column' : '') // this column is an AvailabilityRequirement -> add class to tag
             setDayID(headCell.add(bodyCell), date);
         }
     }

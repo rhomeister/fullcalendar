@@ -3,6 +3,7 @@ build/archive
 build/bower
 build/cdnjs
 dist
+.idea
 
 # npm modules
 node_modules

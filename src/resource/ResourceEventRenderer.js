@@ -1,7 +1,6 @@
 function ResourceEventRenderer() {
     var t = this;
 
-
     // exports
     t.renderEvents = renderEvents;
     t.compileDaySegs = compileDaySegs; // for DayEventRenderer
@@ -18,7 +17,7 @@ function ResourceEventRenderer() {
     var isEventResizable = t.isEventResizable;
     var eventEnd = t.eventEnd;
     var reportEvents = t.reportEvents;
-    var reportEventClear = t.reportEventClear;
+    var reportEventClear = t.reportEventClear || function() {};
     var eventElementHandlers = t.eventElementHandlers;
     var setHeight = t.setHeight;
     var getDaySegmentContainer = t.getDaySegmentContainer;
@@ -412,7 +411,7 @@ function cssKey(_element) {
 			htmlEscape(formatDates(event.start, event.end, opt('timeFormat'))) +
 			"</div>" +
 			"<div class='fc-event-title'>" +
-			htmlEscape(event.title) +
+                (event.title || '') +
 			"</div>" +
 			"</div>" +
 			"<div class='fc-event-bg'></div>";
