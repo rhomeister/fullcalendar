@@ -17,7 +17,7 @@ function ResourceDayView(element, calendar) {
         if (delta) {
             addDays(date, delta);
         }        
-        t.title = formatDate(date, opt('titleFormat'));
+        t.title = formatDate(date, opt('titleFormat'), calendar.options);
         t.start = cloneDate(date, true);
         t.end = cloneDate(t.start, true);
         t.visStart = cloneDate(t.start, true);
