@@ -340,7 +340,7 @@ function AgendaView(element, calendar, viewName) {
 		for (col=0; col<colCnt; col++) {
 			date = cellToDate(0, col);
 			html +=
-				"<th class='fc-" + dayIDs[date.getDay()] + " fc-col" + col + ' ' + headerClass + "'>" +
+                "<th class='fc-" + dayIDs[date.getDay()] + " fc-col" + col + ' ' + headerClass + "' data-date='" + date + "' data-today='"+ (date.yyyymmdd() == new Date().yyyymmdd()) + "'>" +  // EDIT BRWR 24-4-3013 Enable clicking on header to pupulate entire day with event
 				htmlEscape(formatDate(date, colFormat)) +
 				"</th>";
 		}

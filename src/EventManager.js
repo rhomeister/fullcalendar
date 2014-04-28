@@ -155,10 +155,10 @@ function EventManager(options, _sources) {
 				var startParam = firstDefined(source.startParam, options.startParam);
 				var endParam = firstDefined(source.endParam, options.endParam);
 				if (startParam) {
-					data[startParam] = Math.round(+rangeStart / 1000);
+                    data[startParam] = rangeStart.toISOString(); // EDIT BRWR work with ISO Timestamp
 				}
 				if (endParam) {
-					data[endParam] = Math.round(+rangeEnd / 1000);
+                    data[endParam] = rangeEnd.toISOString(); // EDIT BRWR work with ISO Timestamp
 				}
 
 				pushLoading();
