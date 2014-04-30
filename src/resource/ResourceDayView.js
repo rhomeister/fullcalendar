@@ -19,9 +19,11 @@ function ResourceDayView(element, calendar) {
         }        
         t.title = formatDate(date, opt('titleFormat'), calendar.options);
         t.start = cloneDate(date, true);
-        t.end = cloneDate(t.start, true).endOfDay(); // BRWR: JSON event sources pull data based on ISO date/time string. End needs to be at end of day. Relies on custom endOfDay() method on date.
+        t.end = cloneDate(t.start, true);
+        t.end.setHours(24,0,0,0); // BRWR: JSON event sources pull data based on ISO date/time string. End needs to be at end of day. Relies on custom endOfDay() method on date.
         t.visStart = cloneDate(t.start, true);
-        t.visEnd = cloneDate(t.start, true).endOfDay();  // BRWR: JSON event sources pull data based on ISO date/time string. End needs to be at end of day. Relies on custom endOfDay() method on date.
+        t.visEnd = cloneDate(t.start, true)
+        t.visEnd.setHours(24,0,0,0); // BRWR: JSON event sources pull data based on ISO date/time string. End needs to be at end of day. Relies on custom endOfDay() method on date.
         renderResource(1);
     }
 }

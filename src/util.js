@@ -35,7 +35,7 @@ function lazySegBind(container, segs, bindHandlers) {
 			e = parent;
 			parent = parent.parentNode;
 		}
-        if (!_.isUndefined(e) && (i = e._fci) !== undefined) {  //EDIT BRWR Added !__.isUndefined(e) && to prevent issue when clicking wildly in r/o schedule
+        if (e !== undefined && (i = e._fci) !== undefined) {  //EDIT BRWR Added e !== undefined &&  to prevent issue when clicking wildly in r/o schedule
 			e._fci = undefined;
 			seg = segs[i];
 			bindHandlers(seg.event, seg.element, seg);

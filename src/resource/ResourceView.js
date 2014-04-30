@@ -762,7 +762,7 @@ function ResourceView(element, calendar, viewName) {
 						addMinutes(cloneDate(d1), snapMinutes), // calculate minutes depending on selection slot minutes 
 						d2,
 						addMinutes(cloneDate(d2), snapMinutes)
-                    ].sort(cmp);
+                    ].sort(dateCompare);
                     renderSlotSelection(dates[0], dates[3]);
                 } else {
                     dates = null;

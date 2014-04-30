@@ -23,7 +23,6 @@
 			},
 			defaultView: 'resource',
 			allDaySlot: false,
-			selectable: true,
 			slotMinutes: 60,
 			editable: true,
 			resources: [
