@@ -333,7 +333,7 @@ function ResourceView(element, calendar, viewName) {
             bodyCell = dayBodyCells.eq(i);
             var res = t.getResource(i)
             headCell.html(res ? res.title : '');
-            headCell.addClass((res && res.warning) ? 'warning-column' : '') // this column is an AvailabilityRequirement -> add class to tag
+            headCell.addClass((res && res.type) ? "type-" + res.type : '') // set the type on the column as class
             setDayID(headCell.add(bodyCell), date);
         }
     }
