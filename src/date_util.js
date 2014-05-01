@@ -338,6 +338,15 @@ var dateFormatters = {
 	T	: function(d)	{ return d.getHours() < 12 ? 'A' : 'P' },
 	TT	: function(d)	{ return d.getHours() < 12 ? 'AM' : 'PM' },
 	u	: function(d)	{ return formatDate(d, "yyyy-MM-dd'T'HH:mm:ss'Z'") },
+    G   : function(d)   {
+        // Indicates end-time, rendering 24 instead of 0
+        var res = d.getHours();
+        if(res == 0){
+            return 24;
+        } else {
+            return res;
+        }
+    },
 	S	: function(d)	{
 		var date = d.getDate();
 		if (date > 10 && date < 20) {
