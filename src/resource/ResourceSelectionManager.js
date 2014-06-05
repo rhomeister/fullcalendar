@@ -10,16 +10,14 @@ function ResourceSelectionManager(t) {
 
     function resourceReportSelection(startDate, endDate, allDay, ev) {
         var col = calcColNumber(startDate);
-        correctDate(startDate);
-        correctDate(endDate);
+        correctPeriod(startDate, endDate);
         ev.resource_id = getResource(col).id;
         t.sm_reportSelection(startDate, endDate, allDay, ev);
     }
 
     function resourceReportDayClick(date, allDay, ev) {
         var col = calcColNumber(date);
-        correctDate(startDate);
-        correctDate(endDate);
+        correctDate(date);
         ev.resource_id = getResource(col).id;
         t.sm_reportDayClick(date, allDay, ev);
     }
@@ -32,5 +30,14 @@ function ResourceSelectionManager(t) {
     // Fixes issue #3
     function correctDate(date) {
         date.setFullYear(t.start.getFullYear(), t.start.getMonth(), t.start.getDate())
+    }
+    function correctPeriod(startDate, endDate){
+        if(startDate.clone().endOfDay().getTime() == endDate.getTime()){
+            correctDate(startDate);
+            endDate = startDate.clone().endOfDay();
+        } else {
+            correctDate(startDate);
+            correctDate(endDate);
+        }
     }
 }
