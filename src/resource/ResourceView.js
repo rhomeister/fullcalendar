@@ -209,8 +209,15 @@ function ResourceView(element, calendar, viewName) {
 			"<tr>" +
 			"<th class='fc-agenda-axis " + headerClass + "'>&nbsp;</th>";
         for (i = 0; i < colCnt; i++) {
+            var res = t.getResource(i);
+            if(res){
+                var resId = " data-resource-id='"+res.id+"'";
+            } else {
+                var resId = "";
+            }
+
             s +=
-				"<td class='fc- fc-col" + i + ' ' + contentClass + "'>" + // fc- needed for setDayID
+				"<td class='fc- fc-col" + i + ' ' + contentClass + "' " + resId + ">" + // fc- needed for setDayID
 				"<div>" +
 				"<div class='fc-day-content'>" +
 				"<div style='position:relative'>&nbsp;</div>" +
