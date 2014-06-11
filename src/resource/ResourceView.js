@@ -331,7 +331,10 @@ function ResourceView(element, calendar, viewName) {
             date = colDate(i);
             headCell = dayHeadCells.eq(i);
             bodyCell = dayBodyCells.eq(i);
-            var res = t.getResource(i)
+            var res = t.getResource(i);
+            if(res){
+                headCell.attr("data-resource-id", res.id);
+            }
             headCell.html(res ? res.title : '');
             headCell.addClass((res && res.type) ? "type-" + res.type : '') // set the type on the column as class
             setDayID(headCell.add(bodyCell), date);
