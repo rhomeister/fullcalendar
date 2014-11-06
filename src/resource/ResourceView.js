@@ -414,7 +414,7 @@ function ResourceView(element, calendar, viewName) {
         }
 
         colWidth = Math.floor((slotTableWidth - axisWidth) / t.getColCnt());
-        setOuterWidth(dayHeadCells.slice(0, -1), colWidth);
+        setOuterWidth(dayHeadCells, colWidth); // Edit BRWR: removed .slice(0, -1) because not all headers were passed down to setOuterWidth
     }
 
 

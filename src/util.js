@@ -53,20 +53,20 @@ function lazySegBind(container, segs, bindHandlers) {
 
 function setOuterWidth(element, width, includeMargins) {
     // if there are any columns representing an AvailabilityRequirement, make these extra wide
-    var warningColumns = element.filter(".type-warning");
-    var warningColumnWidth = width * 3;
-    var remainingWidth = element.length * width - warningColumnWidth * warningColumns.length;
-    var normalColumnWidth = Math.floor(remainingWidth / (element.length -warningColumns.length));
+    var warningColumns = element.filter(".type-availability_requirement");
+    var totalWidth = element.length * width;
+    var warningColumnSizeFactor = 3;
+    var newUnitWidth = totalWidth / (element.length + (warningColumnSizeFactor - 1) * warningColumns.length)
 
     for (var i=0, e; i<element.length; i++) {
-		e = $(element[i]);
+        e = $(element[i]);
 
-        if(e.hasClass("type-warning")) {
-            e.width(Math.max(0, warningColumnWidth - hsides(e, includeMargins)));
+        if(e.hasClass("type-availability_requirement")) {
+            e.width(warningColumnSizeFactor * newUnitWidth - hsides(e, includeMargins));
         } else {
-            e.width(Math.max(0, normalColumnWidth - hsides(e, includeMargins)));
+            e.width(newUnitWidth - hsides(e, includeMargins));
         }
-	}
+    }
 }
 
 
